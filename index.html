@@ -14,7 +14,7 @@
         }
         .login-container {
             display: flex;
-            height: 100vh;
+            min-height: 100vh;
         }
         .login-form {
             width: 30%;
@@ -30,12 +30,13 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         .logo-img {
-            object-fit: contain;/* Adjust the logo size */
-            width: 80px; /* Adjust the width as needed */
-            height: auto; /* Maintain aspect ratio */
-            padding-top: 10px; /* Add padding to the top */
+            object-fit: contain;
+            width: 80px;
+            height: auto;
+            padding-top: 10px;
             filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(-20deg) saturate(500%) brightness(100%);
         }
         .login-form h1 {
@@ -43,7 +44,7 @@
             margin: 0;
             text-align: left;
             color: #FF6F00;
-            margin-left: 10px; /* Add space between the logo and text */
+            margin-left: 10px;
         }
         .login-form label {
             font-weight: bold;
@@ -64,7 +65,7 @@
         .image-section {
             width: 70%;
             min-height: 300px;
-            background-image: url('./images/food_img.png'); 
+            background-image: url('./images/food_img.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -80,6 +81,70 @@
         }
         .register-link a:hover {
             text-decoration: underline;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 1200px) {
+            .login-form {
+                width: 40%;
+            }
+            .image-section {
+                width: 60%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .login-form {
+                width: 50%;
+            }
+            .image-section {
+                width: 50%;
+            }
+            .login-form h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+            }
+            .login-form {
+                width: 100%;
+                order: 2;
+                border-right: none;
+                padding: 20px;
+            }
+            .image-section {
+                width: 100%;
+                height: 200px;
+                order: 1;
+                min-height: auto;
+            }
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .login-form h1 {
+                margin-left: 0;
+                margin-top: 10px;
+                text-align: center;
+            }
+            .logo-img {
+                width: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-form {
+                padding: 15px;
+            }
+            .login-form h1 {
+                font-size: 1.3rem;
+            }
+            .image-section {
+                height: 150px;
+            }
         }
     </style>
 </head>
@@ -116,7 +181,6 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // Replace the following with your login logic
             if (email === "admin@granolacafe.com" && password === "password123") {
                 window.location.href = "G_cafe.html";
             } else {
